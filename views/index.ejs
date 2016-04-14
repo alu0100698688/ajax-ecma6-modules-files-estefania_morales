@@ -1,12 +1,13 @@
 
 <form action="/csv" method="post">
-
+  <div class="contenido_total">
+    <div class="titulo_practica">
       <h1 align="center">
         <font color="blue">Comma Separated Values (CSV) Analyzer with Ajax</font>
       </h1>
       <hr>
-
-
+    </div>
+    <div class="contenido">
       <table class="center" id="input">
         <tr><th>Escriba aquí una entrada CSV o bien</th></tr>
         <tr><th>Arrastre un fichero CSV hasta la zona de entrada</th></tr>
@@ -22,12 +23,12 @@
         </tr>
         <tr>
           <th>
-
+            <div class="example">
               Click para cargar ejemplos:
               <button class ="example" type="button">input</button>
               <button class ="example" type="button">input2</button>
               <button class ="example" type="button">input3</button>
-
+            </div>
           </th>
         </tr>
         <tr>
@@ -40,4 +41,6 @@
 
       <div class="output" id="finaltable">
       </div>
+    </div>
+  </div>
 </form>
