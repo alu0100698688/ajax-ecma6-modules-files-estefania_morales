@@ -4,6 +4,10 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const expressLayouts = require('express-ejs-layouts');
+var bodyParser = require('body-parser');
+var util = require('util');
+
+app.use(bodyParser.urlencoded({ extended: false }));
 
 app.set('port', (process.env.PORT || 5000));
 
@@ -13,14 +17,16 @@ app.use(expressLayouts);
 
 app.use(express.static(__dirname + '/public'));
 
-const calculate = require('XXXXXXXXXXXXXXXXXX');
+const calculate = require('./models/calculate.js');
 
-app.get('/', (request, response) => {     
-  XXXXXXXXXXXXXXXXXXXXXXXX X XXXXXX XXXX XXXXXXXXX XXX
+app.get('/', (request, response) => {
+  response.render('index', { title: "CSV"});
 });
 
-app.get('/csv', (request, response) => {
-  XXXXXXXXXXXXXXX XXXXXXX XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX XXX
+app.post('/csv', (request, response) => {
+  var csv = request.body.csv;
+  console.log(csv);
+  response.render('csv', { "csv": calculate(csv), title:"Resultado" });
 });
 
 app.listen(app.get('port'), () => {
