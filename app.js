@@ -29,6 +29,10 @@ app.post('/csv', (request, response) => {
   response.render('csv', { "csv": calculate(csv), title:"Resultado" });
 });
 
+app.get('/pruebas', (request, response) => {
+  response.render('tests', { title: "Tests"});
+});
+
 app.listen(app.get('port'), () => {
     console.log(`Node app is running at localhost: ${app.get('port')}` );
 });

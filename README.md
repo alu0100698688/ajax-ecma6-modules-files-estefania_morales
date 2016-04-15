@@ -19,7 +19,6 @@
 
 ## Enlaces
 
-* [Página web de la práctica]()
 
 * [Página web donde residen todas las prácticas](http://alu0100698688.github.io/web/)
 
@@ -27,7 +26,7 @@
 
 * [Descripción de la práctica en el campus](https://casianorodriguezleon.gitbooks.io/pl1516/content/practicas/practicaajaxcsv.html)
 
-* [Enlace a las pruebas]()
+* [Enlace a las pruebas](https://estefi-csv-ajax.herokuapp.com/tests)
 
 ## [Ver despliegue en Heroku](https://estefi-csv-ajax.herokuapp.com)
 
