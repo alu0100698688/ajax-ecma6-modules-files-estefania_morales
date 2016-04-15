@@ -30,7 +30,7 @@ app.post('/csv', (request, response) => {
 });
 
 app.get('/pruebas', (request, response) => {
-  response.render('tests', { title: "Tests"});
+  response.render('pruebas', { title: "Tests"});
 });
 
 app.listen(app.get('port'), () => {
