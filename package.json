@@ -18,6 +18,7 @@
   "contributors": [],
   "license": "ISC",
   "dependencies": {
+    "ajax": "0.0.4",
     "body-parser": "~1.12.0",
     "ejs": "*",
     "express": "~3.2.6",

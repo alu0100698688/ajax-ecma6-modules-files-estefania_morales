@@ -22,8 +22,7 @@ module.exports = function(config) {
       'https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js',
       'https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js',
       'public/tests/index.html',
-      // 'public/js/*.js',
-      'models/*.js',
+      'public/js/test-csv.js',
       'public/tests/*.js'
 
     ],
