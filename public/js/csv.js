@@ -33,38 +33,33 @@ const dump = (fileName) => {
 const handleFileSelect = (evt) => {
   evt.stopPropagation();
   evt.preventDefault();
-
- //
- // XXX XXXXX X XXXXXXXXXXXXXXXXX
- //
- //  XXX XXXXXX X XXX XXXXXXXXXXXXX
- //  XXXXXXXXXXXXX X XXX XX X
- //
- //    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
- //  XX
- //  XXXXXXXXXXXXXXXXXXXXXXXXXXX
+  var inputFiles = evt.target.files;
+  var fr = new FileReader();
+  fr.onload = (event) => {
+    $("#original").val(event.target.result);
+  };
+  fr.readAsText(inputFiles[0]);
 }
 
 /* Drag and drop: el fichero arrastrado se vuelca en la textarea de entrada */
 const handleDragFileSelect = (evt) => {
   evt.stopPropagation();
   evt.preventDefault();
-  //
-  // XXX XXXXX X XXXXXXXXXXXXXXXXXXXXXXX XX XXXXXXXX XXXXXXX
-  //
-  // XXX XXXXXX X XXX XXXXXXXXXXXXX
-  // XXXXXXXXXXXXX X XXX XX X
-  //
-  //   XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-  //   XXXXXXXXXXXXXXXXXXXXXXXXXXX X XXXXXXXX
-  // XX
-  // XXXXXXXXXXXXXXXXXXXXXXXXXXX
+  var fileList = evt.dataTransfer.files; // FileList object.
+
+  var fr = new FileReader();
+  fr.onload = (event) => {
+    $("#original").val(event.target.result);
+    evt.target.style.background = "white";
+  };
+  fr.readAsText(fileList[0]);
 }
 
 const handleDragOver = (evt) => {
   evt.stopPropagation();
   evt.preventDefault();
-  evt.target.style.background = "yellow";
+  evt.target.style.background = "orange";
+
 }
 
 $(document).ready(() => {
@@ -73,19 +68,11 @@ $(document).ready(() => {
       original.value = localStorage.original;
     }
 
-    /* Request AJAX para que se calcule la tabla */
-  //   XXXXXXXXXXXXXXXXXX XX XX X
-  //       XX XXXXXXXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXXXXXXX X XXXXXXXXXXXXXXX
-  //       XXXXXXXXXXXXX
-  //         X XXXXXX XXXXXXXXXXXXXX XX
-  //         XXXXXXXXXX
-  //         XXXXXX
-  //       XX
-  //  XXX
+
    /* botones para rellenar el textarea */
-  //  XXXXXXXXXXXXXXXXXXXXXXXXX XXXXX XX X
-  //    XXXXXXXXXXX XX XX X XXXXXXXXXXXXXXXXXXXXXXXXXXX XXX
-  //  XXX
+   $('.example').click(function(){
+     dump('../ejemplos/'+($(this).val() )+ '.txt');
+   })
 
     // Setup the drag and drop listeners.
     //var dropZone = document.getElementsByClassName('drop_zone')[0];
@@ -94,21 +81,7 @@ $(document).ready(() => {
     dropZone.addEventListener('drop', handleDragFileSelect, false);
     let inputFile = $('.inputfile')[0];
     inputFile.addEventListener('change', handleFileSelect, false);
-    // let inputOne = $('#in1');
-    // inputOne.click(function(){
-    //   dump('../ejemplos/input.txt');
-    // });
-    // let inputTwo = $('#in2');
-    // inputOne.click(function(){
-    //   dump('../ejemplos/input2.txt');
-    // });
-    // let inputThree = $('#in3');
-    // inputOne.click(function(){
-    //   dump('../ejemplos/input3.txt');
-    // });
-    $('.example').click(function(){
-      dump('../ejemplos/'+($(this).val() )+ '.txt');
-    })
+
 
  });
 })();
